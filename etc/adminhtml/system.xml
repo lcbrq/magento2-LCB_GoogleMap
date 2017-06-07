@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="google" translate="label">
+            <group id="map" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Maps</label>
+                <field id="key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Key</label>
+                </field>
+                <field id="latitude" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Latitude</label>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="longitude" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Longitude</label>
+                    <validate>validate-number</validate>
+                </field>
+                 <field id="zoom" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Zoom</label>
+                    <validate>validate-digits-range digits-range-0-20</validate>
+                    <comment><![CDATA[Zoom level (from 0 to 20)]]></comment>
+                </field>
+                <field id="marker" translate="label" type="image" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Marker</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">google/map/marker</upload_dir>
+                    <base_url type="media" scope_info="1">google/map/marker</base_url>
+                    <comment><![CDATA[Allowed file types: jpeg, gif, png.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
