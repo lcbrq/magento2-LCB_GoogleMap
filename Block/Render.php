@@ -105,10 +105,28 @@ class Render extends \Magento\Framework\View\Element\Template {
         return $zoom;
                 
     }
-    
+
+    /**
+     * @return bool
+     */
+    public function isSnazzyMapsEnabled(){
+        if($this->getConfig('snazzymap_enable')){
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSnazzyMapIframe(){
+       return $this->getConfig('snazzymap');
+    }
+
     /**
      * Get Google Map marker icon url
-     * 
+     *
      * @return string
      */
     public function getMarker()
