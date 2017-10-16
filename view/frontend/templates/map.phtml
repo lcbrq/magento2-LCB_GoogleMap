@@ -1,10 +1,16 @@
-<div id="map"></div>
-<script type="text/javascript">// <![CDATA[
-    var apiKey = '<?php echo $this->getConfig('key'); ?>';
-    require([
-        'LCB_GoogleMap/js/map'
-    ], function (map) {
-        map.render(
+<?php if($this->isSnazzyMapsEnabled()){ ?>
+
+    <?php echo $this->getSnazzyMapIframe();?>
+
+<?php }else{ ?>
+
+    <div id="map"></div>
+    <script type="text/javascript">// <![CDATA[
+        var apiKey = '<?php echo $this->getConfig('key'); ?>';
+        require([
+            'LCB_GoogleMap/js/map'
+        ], function (map) {
+            map.render(
                 document.getElementById('map'),
                 <?php echo $this->getLatitude(); ?>,
                 <?php echo $this->getLongitude(); ?>,
@@ -14,3 +20,7 @@
     });
     // ]]>
 </script>
+
+<?php } ?>
+
+

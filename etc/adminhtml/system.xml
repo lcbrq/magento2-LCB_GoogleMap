@@ -27,6 +27,18 @@
                     <base_url type="media" scope_info="1">google/map/marker</base_url>
                     <comment><![CDATA[Allowed file types: jpeg, gif, png.]]></comment>
                 </field>
+                <field id="snazzymap_enable" translate="label" type="select" sortOrder="7" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Use Snazzy Map</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Use sanzzymap custom map instead default google map</comment>
+                </field>
+                <field id="snazzymap" translate="label" type="text" sortOrder="8" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Snazzy Map iframe link</label>
+                    <depends>
+                        <field id="snazzymap_enable">1</field>
+                    </depends>
+                    <comment>Link for iframe provided with sanzzymaps map builder</comment>
+                </field>
             </group>
         </section>
     </system>
