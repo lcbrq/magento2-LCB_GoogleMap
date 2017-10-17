@@ -1,9 +1,6 @@
-<?php if ($this->isSnazzyMapsEnabled()) { ?>
-
-    <?php echo $this->getSnazzyMapIframe(); ?>
-
-<?php } else { ?>
-
+<?php if ($this->isSnazzyMapsEnabled()) {
+    echo $this->getSnazzyMapIframe();
+} else { ?>
     <div id="map"></div>
     <script type="text/javascript">// <![CDATA[
         var apiKey = '<?php echo $this->getConfig('key'); ?>';
@@ -20,7 +17,4 @@
         });
         // ]]>
     </script>
-
 <?php } ?>
-
-
