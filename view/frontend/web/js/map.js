@@ -15,13 +15,11 @@ define([
                 zoom: zoom,
                 center: {lat: x, lng: y}
             });
-            if (image) {
-                new google.maps.Marker({
-                    position: {lat: x, lng: y},
-                    map: map,
-                    icon: image
-                });
-            }
+            new google.maps.Marker({
+                position: {lat: x, lng: y},
+                map: map,
+                icon: image
+            });
         }
     };
 
