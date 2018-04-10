@@ -28,17 +28,23 @@ class Render extends \Magento\Framework\View\Element\Template {
      */
     protected $_storeManager;
 
+    /** @var \LCB\GoogleMap\Helper\Data  */
+    protected $_helper;
+
     /**
-     * Constructor
+     * Render constructor.
      *
-     * @param Magento\Framework\View\Element\Template\Context $context
-     * @param array $data
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \LCB\GoogleMap\Helper\Data                       $helper
+     * @param array                                            $data
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
+        \LCB\GoogleMap\Helper\Data $helper,
         array $data = []
     )
     {
+        $this->_helper = $helper;
         $this->_scopeConfig = $context->getScopeConfig();
         $this->_storeManager = $context->getStoreManager();
         parent::__construct($context, $data);
@@ -52,7 +58,7 @@ class Render extends \Magento\Framework\View\Element\Template {
      */
     public function getConfig($path)
     {
-        return $this->_scopeConfig->getValue('google/map/' . (string) $path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $this->_helper->getConfig($path);
     }
 
     /**

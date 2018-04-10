@@ -15,7 +15,8 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "magento/framework": ">=100.0.0"
+        "magento/framework": ">=100.0.0",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "autoload": {
         "files": ["registration.php"],

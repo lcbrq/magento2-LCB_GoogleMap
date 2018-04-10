@@ -40,6 +40,19 @@
                     <comment>Link for iframe provided with sanzzymaps map builder</comment>
                 </field>
             </group>
+            <group id="place" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Places</label>
+                <field id="place_enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enable/Disable Google places</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="place_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Place ID</label>
+                    <depends>
+                        <field id="place_enable">1</field>
+                    </depends>
+                </field>
+            </group>
         </section>
     </system>
 </config>
