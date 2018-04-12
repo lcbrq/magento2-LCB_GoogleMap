@@ -65,7 +65,16 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper{
         $placeId = $this->getPlacesConfig('place_id');
         $client = new \GuzzleHttp\Client();
         $result = $client->get(self::GOOGLE_MAP_PLACES_API_URL . '?placeid=' . $placeId . '&key=' . $key);
-        return json_decode($result->getBody()->getContents());
+        return $this->formatContents($result->getBody()->getContents());
+    }
+
+    /**
+     * @param $response
+     * @return mixed
+     */
+    public function formatContents($response){
+        $arr = json_decode($response,true);
+        return $arr['result']['rating'];
     }
 
 }
